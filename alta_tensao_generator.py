@@ -44,9 +44,11 @@ for url in urls_to_follow:
     date = soup.select(".vod-data p span.episode-date")[0].text
     media_url = res.groups()[0].decode()
     head = requests.head(url)
+    if '\n' in title:
+       title = title.split('\n')[-1]
     episodes.append(
        Episode(
-          title=title,
+          title=title.title(),
           media=Media(media_url, head.headers["Content-Length"]),
           summary=soup.title.text,
           publication_date=arrow.get(date, "DD MMM. YYYY", locale="pt").datetime
