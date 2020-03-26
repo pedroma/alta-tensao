@@ -46,9 +46,9 @@ for url in urls_to_follow:
     head = requests.head(url)
     episodes.append(
        Episode(
-          title=soup.title.text,
+          title=title,
           media=Media(media_url, head.headers["Content-Length"]),
-          summary=title,
+          summary=soup.title.text,
           publication_date=arrow.get(date, "DD MMM. YYYY", locale="pt").datetime
        )
    )
