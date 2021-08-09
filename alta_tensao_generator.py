@@ -39,7 +39,7 @@ episodes = []
 for url in urls_to_follow:
     content = requests.get(url).content
     soup = BeautifulSoup(content, features="lxml")
-    res = re.search(b'file : "(.+?)",\\n', content)
+    res = re.search(b'var f = "(.+?)"', content)
     title = soup.select("b.vod-title")[0].text
     date = soup.select(".vod-data p span.episode-date")[0].text
     media_url = res.groups()[0].decode()
