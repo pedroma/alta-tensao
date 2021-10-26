@@ -12,6 +12,7 @@ Just create a virtualenv, set the enviroment variables described below and:
 
 Enviroment variables:
 
+
 ```
 DO_BUCKET_REGION: digital ocean bucket region
 DO_SPACE_KEY: digital ocean space key
